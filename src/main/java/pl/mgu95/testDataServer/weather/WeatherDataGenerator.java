@@ -84,8 +84,7 @@ public class WeatherDataGenerator {
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
-            System.out.println("An error occurred.");
-            e.printStackTrace();
+            System.out.println("An error occurred. Try Again!");
         }
         return null;
     }

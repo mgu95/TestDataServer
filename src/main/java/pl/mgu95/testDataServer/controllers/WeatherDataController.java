@@ -4,15 +4,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import pl.mgu95.testDataServer.tools.CallsCounter;
 import pl.mgu95.testDataServer.weather.WeatherDataGenerator;
 
 @RestController
 public class WeatherDataController {
 
-    WeatherDataGenerator dataGenerator = new WeatherDataGenerator();
+    WeatherDataGenerator dataGenerator;
+    CallsCounter counter;
+
+    public WeatherDataController() {
+        this.dataGenerator = new WeatherDataGenerator();
+        this.counter = new CallsCounter();
+    }
 
     @RequestMapping(value = "/getWeatherData", method = RequestMethod.GET)
     public String getWeatherData() {
+        dataGenerator = new WeatherDataGenerator();
+        counter = new CallsCounter();
+        counter.countCall();
         return dataGenerator.generateWeatherData();
     }
 

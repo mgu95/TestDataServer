@@ -4,7 +4,7 @@
 
   <groupId>pl.mgu95</groupId>
   <artifactId>TestDataServer</artifactId>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>TestDataServer Maven Webapp</name>
   <url>https://github.com/mgu95</url>
